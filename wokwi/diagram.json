@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Cofre eletronico ESP32",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 60, "left": 330, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -300,
+      "left": 420,
+      "attrs": { "pins": "full" }
+    },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -251.6, "left": -52, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 160, "left": 640, "attrs": {} },
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": -110, "left": 235, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:VSS", "bb1:14t.a", "black", [ "v24", "h-48", "v46", "*" ] ],
+    [ "lcd1:V0", "bb1:14t.b", "black", [ "v32", "h-61", "v48", "*" ] ],
+    [ "lcd1:RW", "bb1:14t.c", "black", [ "v40", "h-75", "v49", "*" ] ],
+    [ "lcd1:VDD", "bb1:10t.a", "red", [ "v14", "h-113", "v56", "*" ] ],
+    [ "esp:GND.1", "bb1:14t.d", "black", [ "h-8", "v-278", "*" ] ],
+    [ "esp:VIN", "bb1:10t.b", "red", [ "h-14", "v-306", "*" ] ],
+    [ "lcd1:RS", "esp:D23", "green", [ "v84", "h1", "v168", "*" ] ],
+    [ "lcd1:E", "esp:D22", "blue", [ "v92", "h-10", "v170", "*" ] ],
+    [ "lcd1:D4", "esp:D21", "purple", [ "v100", "h-50", "v190", "*" ] ],
+    [ "lcd1:D5", "esp:D19", "orange", [ "v108", "h-52", "v192", "*" ] ],
+    [ "lcd1:D6", "esp:D18", "gold", [ "v116", "h-53", "v194", "*" ] ],
+    [ "lcd1:D7", "esp:D5", "cyan", [ "v124", "h-55", "v195", "*" ] ],
+    [ "keypad1:R1", "esp:D13", "green", [ "v60", "h240", "v123", "*" ] ],
+    [ "keypad1:R2", "esp:D14", "blue", [ "v52", "h238", "v112", "*" ] ],
+    [ "keypad1:R3", "esp:D27", "purple", [ "v44", "h237", "v110", "*" ] ],
+    [ "keypad1:R4", "esp:D26", "orange", [ "v36", "h235", "v109", "*" ] ],
+    [ "keypad1:C1", "esp:D25", "magenta", [ "v28", "h234", "v107", "*" ] ],
+    [ "keypad1:C2", "esp:D33", "pink", [ "v20", "h233", "v105", "*" ] ],
+    [ "keypad1:C3", "esp:D32", "limegreen", [ "v12", "h232", "v103", "*" ] ],
+    [ "keypad1:C4", "esp:RX2", "brown", [ "v290", "h345", "v-136", "*" ] ],
+    [ "servo1:PWM", "esp:D4", "yellow", [ "h-30", "v-26", "*" ] ],
+    [ "servo1:GND", "esp:GND.2", "black", [ "h-20", "v23", "*" ] ],
+    [ "servo1:V+", "esp:VIN", "red", [ "h-14", "v120", "h-302", "v-98", "*" ] ],
+    [ "lcd1:K", "servo1:GND", "black", [ "v34", "h24", "v320", "*" ] ],
+    [ "lcd1:A", "servo1:V+", "red", [ "v44", "h28", "v320", "*" ] ]
+  ],
+  "dependencies": {}
+}
